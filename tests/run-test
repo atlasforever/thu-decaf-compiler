@@ -25,7 +25,7 @@ run_test() {
 
     if [[ $TGT = PA3 ]];then
         $DECAF_BIN -t $TGT -d output input/$T.decaf >output/$LL_FILENAME 2>&1
-        gcc $RUNTIME_C output/$LL_FILENAME -o output/$T && output/$T > output/$T.output 2>&1 || true
+        clang-13 $RUNTIME_C output/$LL_FILENAME -o output/$T && output/$T > output/$T.output 2>&1 || true
     else
         $DECAF_BIN -t $TGT -d output input/$T.decaf >output/$T.output 2>&1 || true
     fi
