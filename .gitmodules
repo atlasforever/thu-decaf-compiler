@@ -1,3 +1,0 @@
-[submodule "decaf-tests"]
-	path = tests
-	url = https://github.com/decaf-lang/decaf-tests.git
