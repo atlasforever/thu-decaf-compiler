@@ -1,0 +1,12 @@
+*** Error at (5,18): function 'add' expects 2 argument(s) but 1 given
+*** Error at (6,27): incompatible argument 2: class Main given, int expected
+*** Error at (7,26): field 'length' not found in 'class Main'
+*** Error at (8,27): new array length must be an integer
+*** Error at (9,17): function 'length' expects 0 argument(s) but 1 given
+*** Error at (11,17): cannot access field 'length' from 'int'
+*** Error at (12,17): cannot access field 'sub' from 'class Main'
+*** Error at (13,12): field 'mul' not found in 'class Main'
+*** Error at (14,17): field 'mul' not found in 'class Main'
+*** Error at (15,23): field 'mul' not found in 'class Main'
+*** Error at (16,23): 'div' is not a method in class 'class Main'
+*** Error at (17,12): field 'foo' not found in 'class Main'

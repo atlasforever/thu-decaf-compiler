@@ -1,0 +1,4 @@
+*** Error: no legal Main class named 'Main' was found
+*** Error at (2,5): array element type must be non-void known type
+*** Error at (3,9): array element type must be non-void known type
+*** Error at (4,14): cannot declare identifier 'x' as void type

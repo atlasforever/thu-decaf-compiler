@@ -1,0 +1,51 @@
+#!/bin/bash
+set -e
+
+export DECAF_JAR=$PWD/../build/libs/decaf.jar
+export RUNTIME_C=$PWD/../rt/runtime.c
+
+parse_args() {
+    case $1 in
+        1a) export DIR=PA1 ; export TGT=PA1 ;;
+        1b) export DIR=PA1 ; export TGT=PA1-LL ;;
+        2) export DIR=PA2 ; export TGT=PA2 ;;
+        3) export DIR=PA3 ; export TGT=PA3 ;;
+        5-x86) export DIR=PA3 ; export TGT=PA5-X86 ; export EMIT_BINARY=1 ;;
+        *) echo "Usage: $0 [1a|1b|2|3|5-x86]" ; exit 1 ;;
+    esac
+    [[ -f $DECAF_JAR ]] || (echo "Cannot find $DECAF_JAR. Did you 'gradle build'?" ; exit 1)
+}
+
+prepare() {
+    cd input && TESTS=(`ls -1 *.decaf | sed 's/\.decaf//'`) && cd ..
+    rm -rf output && mkdir output
+    [[ -n $EMIT_BINARY ]] && gcc -m32 -S $RUNTIME_C -o output/rt.s || true
+}
+
+run_test() {
+    T=$1
+    java -jar $DECAF_JAR -t $TGT -o output/$T.output -d output input/$T.decaf >output/$T.log 2>&1
+    if [[ -n $EMIT_BINARY ]]; then
+        gcc -m32 output/$T.s output/rt.s -o output/$T
+        (output/$T > output/$T.output 2>&1) || true
+    fi
+}
+export -f run_test
+
+check_output(){ 
+    NPASS=0
+    NTOT=${#TESTS[@]}
+    for T in ${TESTS[@]}; do
+        echo "==========" $T
+        diff -qZ output/$T.output expected/$T.result && NPASS=$((NPASS+1))
+    done
+    echo "Pass/Total: ${NPASS}/${NTOT}"
+    exit `[ $NPASS = $NTOT ]`
+}
+
+
+parse_args $1
+cd $DIR
+prepare
+parallel --halt now,fail=1 run_test ::: ${TESTS[@]}
+check_output

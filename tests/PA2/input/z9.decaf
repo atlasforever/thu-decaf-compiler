@@ -1,0 +1,16 @@
+class Main {
+    int x;
+    void set(int x) {
+        this.x = x;
+    }
+    int get() {
+        int x = this.x;
+        return x;
+    }
+    static void main() {
+        class Main f;
+        f = new Main();
+        f.set(5);
+        f.set(f.get()+f.get());
+    }
+}
