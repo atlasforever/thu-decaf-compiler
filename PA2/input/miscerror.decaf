@@ -1,0 +1,10 @@
+class Main {
+    static void main() {
+        Print(new Main(), 1);
+        if (true)
+            break;
+        Print(instanceof(1, Main));
+        class Main m = (class Main)true;
+        return 1;
+    }
+}

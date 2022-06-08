@@ -1,0 +1,20 @@
+GLOBAL SCOPE:
+    (1,1) -> class Main
+    CLASS SCOPE OF 'Main':
+        (2,9) -> variable x : int
+        (3,10) -> function set : int => void
+        (6,9) -> function get : () => int
+        (10,17) -> STATIC function main : () => void
+        FORMAL SCOPE OF 'set':
+            (3,10) -> variable @this : class Main
+            (3,18) -> variable @x : int
+            LOCAL SCOPE:
+                <empty>
+        FORMAL SCOPE OF 'get':
+            (6,9) -> variable @this : class Main
+            LOCAL SCOPE:
+                (7,13) -> variable x : int
+        FORMAL SCOPE OF 'main':
+            <empty>
+            LOCAL SCOPE:
+                (11,20) -> variable f : class Main

@@ -1,0 +1,27 @@
+GLOBAL SCOPE:
+    (1,1) -> class Main
+    CLASS SCOPE OF 'Main':
+        (3,9) -> variable a : int
+        (4,14) -> variable b : string[]
+        (6,11) -> function tester : int => int[]
+        (11,10) -> function start : () => void
+        (27,17) -> STATIC function main : () => void
+        FORMAL SCOPE OF 'tester':
+            (6,11) -> variable @this : class Main
+            (6,22) -> variable @d : int
+            LOCAL SCOPE:
+                <empty>
+        FORMAL SCOPE OF 'start':
+            (11,10) -> variable @this : class Main
+            LOCAL SCOPE:
+                (12,13) -> variable a : int
+                (13,14) -> variable b : bool
+                (14,15) -> variable d : int[]
+                LOCAL SCOPE:
+                    (16,19) -> variable array : int[]
+                    LOCAL SCOPE:
+                        <empty>
+        FORMAL SCOPE OF 'main':
+            <empty>
+            LOCAL SCOPE:
+                <empty>

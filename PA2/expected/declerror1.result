@@ -1,0 +1,2 @@
+*** Error at (42,1): declaration of 'A' here conflicts with earlier declaration at (17,1)
+*** Error at (45,1): class 'D' not found

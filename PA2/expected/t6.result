@@ -1,0 +1,16 @@
+GLOBAL SCOPE:
+    (1,1) -> class Main
+    CLASS SCOPE OF 'Main':
+        (3,16) -> STATIC function Binky : (int, int[], int[]) => int
+        (7,17) -> STATIC function main : () => void
+        FORMAL SCOPE OF 'Binky':
+            (3,26) -> variable @a : int
+            (3,35) -> variable @b : int[]
+            (3,44) -> variable @c : int[]
+            LOCAL SCOPE:
+                <empty>
+        FORMAL SCOPE OF 'main':
+            <empty>
+            LOCAL SCOPE:
+                (8,15) -> variable c : int[]
+                (9,17) -> variable d : int[][]
