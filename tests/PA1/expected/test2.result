@@ -28,7 +28,7 @@ TopLevel @ (1,1)
                                     i
                                 IntLit @ (7,13)
                                     4
-                            ExprEval @ (8,23)
+                            ExprEval
                                 Call @ (8,23)
                                     VarSel @ (8,9)
                                         <none>
@@ -49,12 +49,12 @@ TopLevel @ (1,1)
                                 TClass @ (10,9)
                                     Goo
                                 g
-                                ClassCast @ (10,34)
+                                ClassCast
                                     VarSel @ (10,34)
                                         <none>
                                         h
                                     Goo
-                            ExprEval @ (11,23)
+                            ExprEval
                                 Call @ (11,23)
                                     VarSel @ (11,9)
                                         <none>

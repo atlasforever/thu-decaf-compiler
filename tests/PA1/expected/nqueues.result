@@ -12,7 +12,7 @@ TopLevel @ (3,1)
                         <empty>
                     Block @ (5,24)
                         List
-                            ExprEval @ (6,35)
+                            ExprEval
                                 Call @ (6,35)
                                     Call @ (6,26)
                                         NewClass @ (6,9)
@@ -131,7 +131,7 @@ TopLevel @ (3,1)
                         <empty>
                     Block @ (29,18)
                         List
-                            ExprEval @ (30,12)
+                            ExprEval
                                 Call @ (30,12)
                                     <none>
                                     try
@@ -343,7 +343,7 @@ TopLevel @ (3,1)
                                         N
                                 Block @ (66,21)
                                     List
-                                        ExprEval @ (67,23)
+                                        ExprEval
                                             Call @ (67,23)
                                                 <none>
                                                 printBoard
@@ -486,7 +486,7 @@ TopLevel @ (3,1)
                                                                     VarSel @ (74,30)
                                                                         <none>
                                                                         r
-                                                                ExprEval @ (75,24)
+                                                                ExprEval
                                                                     Call @ (75,24)
                                                                         <none>
                                                                         try

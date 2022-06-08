@@ -144,7 +144,7 @@ TopLevel @ (4,1)
                                                 b
                                     Binary @ (11,50)
                                         MUL
-                                        ClassCast @ (11,47)
+                                        ClassCast
                                             VarSel @ (11,47)
                                                 <none>
                                                 b
@@ -216,7 +216,7 @@ TopLevel @ (4,1)
                                                     b
                                     Binary @ (14,49)
                                         MUL
-                                        ClassCast @ (14,43)
+                                        ClassCast
                                             Call @ (14,43)
                                                 <none>
                                                 a
@@ -258,7 +258,7 @@ TopLevel @ (4,1)
                                                         <none>
                                                         d
                                                 e
-                                        ClassCast @ (15,71)
+                                        ClassCast
                                             VarSel @ (15,71)
                                                 IndexSel @ (15,66)
                                                     Call @ (15,62)

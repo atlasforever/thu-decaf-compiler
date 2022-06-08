@@ -1,33 +1,33 @@
 #!/bin/bash
 set -e
 
-export DECAF_JAR=$PWD/../build/libs/decaf.jar
-export RUNTIME_C=$PWD/../rt/runtime.c
+export RUNTIME_C=$PWD/../src/runtime/runtime.c
+export DECAF_BIN=$PWD/../decaf
 
 parse_args() {
     case $1 in
-        1a) export DIR=PA1 ; export TGT=PA1 ;;
-        1b) export DIR=PA1 ; export TGT=PA1-LL ;;
+        1) export DIR=PA1 ; export TGT=PA1 ;;
         2) export DIR=PA2 ; export TGT=PA2 ;;
         3) export DIR=PA3 ; export TGT=PA3 ;;
-        5-x86) export DIR=PA3 ; export TGT=PA5-X86 ; export EMIT_BINARY=1 ;;
-        *) echo "Usage: $0 [1a|1b|2|3|5-x86]" ; exit 1 ;;
+        *) echo "Usage: $0 [1|2|3]" ; exit 1 ;;
     esac
-    [[ -f $DECAF_JAR ]] || (echo "Cannot find $DECAF_JAR. Did you 'gradle build'?" ; exit 1)
+    [[ -f $DECAF_BIN ]] || (echo "Cannot find $DECAF_BIN. Did you 'make'?" ; exit 1)
 }
 
 prepare() {
     cd input && TESTS=(`ls -1 *.decaf | sed 's/\.decaf//'`) && cd ..
     rm -rf output && mkdir output
-    [[ -n $EMIT_BINARY ]] && gcc -m32 -S $RUNTIME_C -o output/rt.s || true
 }
 
 run_test() {
     T=$1
-    java -jar $DECAF_JAR -t $TGT -o output/$T.output -d output input/$T.decaf >output/$T.log 2>&1
-    if [[ -n $EMIT_BINARY ]]; then
-        gcc -m32 output/$T.s output/rt.s -o output/$T
-        (output/$T > output/$T.output 2>&1) || true
+    LL_FILENAME=$T.ll
+
+    if [[ $TGT = PA3 ]];then
+        $DECAF_BIN -t $TGT -d output input/$T.decaf >output/$LL_FILENAME 2>&1
+        gcc $RUNTIME_C output/$LL_FILENAME -o output/$T && output/$T > output/$T.output 2>&1 || true
+    else
+        $DECAF_BIN -t $TGT -d output input/$T.decaf >output/$T.output 2>&1 || true
     fi
 }
 export -f run_test
@@ -35,11 +35,21 @@ export -f run_test
 check_output(){ 
     NPASS=0
     NTOT=${#TESTS[@]}
+
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    NC='\033[0m'
+    COLOR=$RED
+
     for T in ${TESTS[@]}; do
         echo "==========" $T
         diff -qZ output/$T.output expected/$T.result && NPASS=$((NPASS+1))
     done
-    echo "Pass/Total: ${NPASS}/${NTOT}"
+    if [ ${NPASS} == ${NTOT} ];then
+        COLOR=${GREEN}	
+    fi
+
+    echo -e "${COLOR}Pass/Total: ${NPASS}/${NTOT}${NC}"
     exit `[ $NPASS = $NTOT ]`
 }
 

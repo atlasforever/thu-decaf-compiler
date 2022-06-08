@@ -22,6 +22,8 @@ GLOBAL SCOPE:
                 (11,13) -> variable result : int
                 LOCAL SCOPE:
                     (12,18) -> variable i : int
+                    LOCAL SCOPE:
+                        <empty>
         FORMAL SCOPE OF 'log':
             (18,24) -> variable @a : int
             LOCAL SCOPE:

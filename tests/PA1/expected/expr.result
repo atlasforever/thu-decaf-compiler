@@ -130,7 +130,7 @@ TopLevel @ (1,1)
                                 a
                                 Binary @ (12,33)
                                     ADD
-                                    ClassCast @ (12,31)
+                                    ClassCast
                                         IntLit @ (12,31)
                                             1
                                         A
@@ -143,8 +143,8 @@ TopLevel @ (1,1)
                                 TClass @ (13,9)
                                     A
                                 b
-                                ClassCast @ (13,48)
-                                    ClassCast @ (13,48)
+                                ClassCast
+                                    ClassCast
                                         Call @ (13,48)
                                             This @ (13,40)
                                             foo

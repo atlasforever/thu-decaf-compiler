@@ -24,20 +24,12 @@ GLOBAL SCOPE:
                     <empty>
                 LOCAL SCOPE:
                     <empty>
-                    LOCAL SCOPE:
-                        <empty>
-                    LOCAL SCOPE:
-                        <empty>
-                        LOCAL SCOPE:
-                            <empty>
-                        LOCAL SCOPE:
-                            <empty>
-                            LOCAL SCOPE:
-                                <empty>
-                            LOCAL SCOPE:
-                                <empty>
-                                LOCAL SCOPE:
-                                    <empty>
+                LOCAL SCOPE:
+                    <empty>
+                LOCAL SCOPE:
+                    <empty>
+                LOCAL SCOPE:
+                    <empty>
     CLASS SCOPE OF 'Base':
         <empty>
     CLASS SCOPE OF 'Sub1':
