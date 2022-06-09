@@ -5,8 +5,8 @@ ANTLR_INC=$(TOP_PATH)/lib/LIBANTLR4-4.9.1-Linux/include/antlr4-runtime/
 
 export OUTPUT=$(TOP_PATH)/output
 
-export CXX=clang++-13
-export LLVM_CONFIG=llvm-config-13
+export CXX=clang++-12
+export LLVM_CONFIG=llvm-config-12
 export CXXARGS=-g -c -I$(ANTLR_INC) -I$(ANTLR_OUTPUT) -I$(TOP_PATH)/src -std=c++14
 export LIBS=$(TOP_PATH)/lib/LIBANTLR4-4.9.1-Linux/lib/libantlr4-runtime.a
 export LLVM_LDFLAGS=$(shell $(LLVM_CONFIG) --ldflags --libs core native)
